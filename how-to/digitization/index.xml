@@ -529,6 +529,37 @@ Copy the whole bottom line &lt;em&gt;except&lt;/em&gt; the final &lt;code&gt;&am
     </item>
     
     <item>
+      <title>Polishing TEI instructions</title>
+      <link>https://dig-eg-gaz.github.io/how-to/digitization/polished-tei-instructions/</link>
+      <pubDate>Tue, 01 Oct 2019 00:00:00 +0000</pubDate>
+      <guid>https://dig-eg-gaz.github.io/how-to/digitization/polished-tei-instructions/</guid>
+      <description>
+
+&lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
+
+&lt;p&gt;This lesson explains how to polish your TEI-XML file so that it is ready to be added to the master content repository.&lt;/p&gt;
+
+&lt;h2 id=&#34;1-get-the-page-hierarchy-right&#34;&gt;1. Get the page hierarchy right&lt;/h2&gt;
+
+&lt;p&gt;The best way to get a quick idea of your file&amp;rsquo;s structure is to look at the Outline in Oxyge. At the highest level, your document should consist of six (or eight) parallel page &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;s:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/page-div-outline.png&#34; alt=&#34;page-div-outline&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;All other &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt;s should be &lt;em&gt;inside&lt;/em&gt; the page &lt;code&gt;&amp;lt;div&amp;gt;&lt;/code&gt; in which they appear. If you do not have everything inside pages, your outline will look messy:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/page-div-outline-messy.png&#34; alt=&#34;page-div-outline-messy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The solution is to drag everything into its proper page.&lt;/p&gt;
+
+&lt;p&gt;Another problem that arises is failing to close divs or pages. You&amp;rsquo;ll know you have this problem if the end of your file looks like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/unclosed-divs.png&#34; alt=&#34;unclosed-divs&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;2-get-the-breaks-right&#34;&gt;2. Get the breaks right&lt;/h2&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Plain text instructions</title>
       <link>https://dig-eg-gaz.github.io/how-to/digitization/text-editor-instructions/</link>
       <pubDate>Fri, 30 Sep 2016 00:00:00 +0000</pubDate>
