@@ -611,7 +611,7 @@ Copy the whole bottom line &lt;em&gt;except&lt;/em&gt; the final &lt;code&gt;&am
 
 &lt;p&gt;For example, the &amp;ldquo;Nile Gauge Reading&amp;rdquo; item at the bottom of this page should be preceded by a &lt;code&gt;&amp;lt;colSpan n=&amp;quot;4&amp;quot;/)&lt;/code&gt; tag.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;cols-example-colspan-4.png&#34; alt=&#34;cols-example-colspan-4&#34; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/cols-example-colspan-4.png&#34; alt=&#34;cols-example-colspan-4&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
