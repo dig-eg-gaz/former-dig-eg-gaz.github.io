@@ -442,7 +442,17 @@ All other &lt;div&gt;s should be inside the page &lt;div&gt; in which they appea
 <ul>
 <li><a href="#objective">Objective</a></li>
 <li><a href="#1-get-the-page-hierarchy-right">1. Get the page hierarchy right</a></li>
-<li><a href="#2-get-the-breaks-right">2. Get the breaks right</a></li>
+<li><a href="#2-get-the-breaks-right">2. Get the breaks right</a>
+<ul>
+<li><a href="#a-line-breaks">a. Line breaks</a></li>
+<li><a href="#b-page-breaks">b. Page breaks</a></li>
+</ul></li>
+<li><a href="#3-column-breaks">3. Column breaks</a>
+<ul>
+<li><a href="#a-cb-n">a. <code>&lt;cb n=&quot;?&quot;/&gt;</code></a></li>
+<li><a href="#b-cols-n">b. <code>&lt;cols n=&quot;?&quot;/&gt;</code></a></li>
+<li><a href="#c-colspan-n">c. <code>&lt;colSpan n=&quot;?&quot;/&gt;</code></a></li>
+</ul></li>
 </ul></li>
 </ul>
 </nav>
@@ -482,6 +492,54 @@ All other &lt;div&gt;s should be inside the page &lt;div&gt; in which they appea
 <p><img src="/img/unclosed-divs.png" alt="unclosed-divs" /></p>
 
 <h2 id="2-get-the-breaks-right">2. Get the breaks right</h2>
+
+<p>There are three types of &ldquo;breaks&rdquo; in the digital <em>Egyptian Gazette</em>. Two of them are very straightforward to work with:</p>
+
+<h3 id="a-line-breaks">a. Line breaks</h3>
+
+<p>You will have little need for line breaks, which are coded <code>&lt;lb/&gt;</code>. For the most part, line breaks are indicated with paragraph tags. Sometimes, however (in adverts, for instance), you may find it useful or necessary to use a <code>&lt;lb/&gt;</code> instead of <code>&lt;p&gt;&lt;/p&gt;</code>.</p>
+
+<h3 id="b-page-breaks">b. Page breaks</h3>
+
+<p>Page breaks (<code>&lt;pb n=&quot;?&quot;/&gt;</code>) are currently used in the digital <em>Egyptian Gazette</em>, but they are redundant, because every page is contained in <code>&lt;div type=&quot;page&quot; n=&quot;?&quot;&gt; &lt;/div&gt;</code> tags. In both cases, the <code>n=&quot;?&quot;</code> attribute records the page number.</p>
+
+<p>Please use both divs and breaks to indicate pages. TEI&rsquo;s rules for periodicals are still in development, and we want our resource to be flexible to more than one approach. Note that the page break tag comes <em>before</em> the page <code>&lt;div&gt;</code> itself; the arrangement outlined in the first page hierarchy image above is correct.</p>
+
+<h2 id="3-column-breaks">3. Column breaks</h2>
+
+<p>Column breaks can be hard to work out, not least because they are not well implemented in the TEI specification. In this project, we use three different tags to describe the columns:</p>
+
+<h3 id="a-cb-n">a. <code>&lt;cb n=&quot;?&quot;/&gt;</code></h3>
+
+<p>This tag indicates the start of a new column. Use it at the beginning of every page, and again each time the text stops at the bottom of the page and jumps to the top of another column. Use the <code>n=</code> attribute to indicate which column is beginning.</p>
+
+<p>This is straightforward on a typical page 3, which contains six even-sized columns running from the top to the bottom of the page.</p>
+
+<p><img src="/img/cols-example-6-cbs-p-3.png" alt="cols-example-6-cbs-p-3" /></p>
+
+<p>Do not make each column into its own <code>&lt;div&gt;</code>. Column breaks often coincide with the start of a new <code>&lt;div&gt;</code>, but they have a distinct role. They indicate the layout of the paper, not its content. <code>&lt;div&gt;</code>, on the other hand, is used to encode articles and sections of the paper with their own headline and content. A <code>&lt;cb/&gt;</code> can even be dropped in the middle of a paragraph, as we see with the column break at the start of column 5 in the image above.</p>
+
+<h3 id="b-cols-n">b. <code>&lt;cols n=&quot;?&quot;/&gt;</code></h3>
+
+<p>This tag indicates how many evenly-sized columns the page is divided into. Use it only when the width of columns change. Below the nameplate on page 1, for example, we use a <code>&lt;cols n=&quot;3&quot;/&gt;</code> tag to show that the page is divided into three equal columns. We insert this tag before we show the start of the first column using <code>&lt;cb n=&quot;1&quot;/&gt;</code>.</p>
+
+<p>Page 3 is usually divided into six equal columns. We can indicate this using <code>&lt;cols n=&quot;6&quot;/&gt;</code>. Again, this tag comes before the first column break (as indicated in the image above).</p>
+
+<p>Things are more complicated on page 2, which often contains a mix of single- and double-width columns. Remember that single-width columns are indicated with <code>&lt;cols n=&quot;6&quot;/&gt;</code>, because the page can contain six of them. Double-width colums are indicated with <code>&lt;cols n=&quot;3&quot;/&gt;</code>, because the page can contain only three of them. The rare triple-width column would be marked with <code>&lt;cols n=&quot;2&quot;/&gt;</code>.</p>
+
+<p>Here is an example of a page 2, with its layout blocked in colored columns:</p>
+
+<p><img src="/img/cols-example-p-2-layout.png" alt="cols-example-p-2-layout" /></p>
+
+<p>The page starts with a double-width column (A), which splits into two single-width columns (A &amp; B) partway down. The middle of the page contains another double-width column &copy; that splits into single-width columns (C &amp; D). The right-hand side of the page contains two full-length single-width columns (E &amp; F).</p>
+
+<p>We encode the columns on this page like this:</p>
+
+<p><img src="/img/cols-example-p-2-layout-xml.png" alt="cols-example-p-2-layout-xml" /></p>
+
+<h3 id="c-colspan-n">c. <code>&lt;colSpan n=&quot;?&quot;/&gt;</code></h3>
+
+<p>This tag is used for items that are wider than a single column and are located in a spot where the page is not cannot be divided into even-sized columns using <code>&lt;cols/&gt;</code>.</p>
 
           </div>
 
