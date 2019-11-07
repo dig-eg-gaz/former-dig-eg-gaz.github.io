@@ -800,42 +800,61 @@ Copy the whole bottom line &lt;em&gt;except&lt;/em&gt; the final &lt;code&gt;&am
 
 &lt;h2 id=&#34;objective&#34;&gt;Objective&lt;/h2&gt;
 
-&lt;p&gt;We are digitizing the &lt;em&gt;Egyptian Gazette&lt;/em&gt; to make its contents searchable. Plain text can be searched with keywords, but TEI-XML encoded text can be searched in more precise ways. For example, if you search for &amp;ldquo;London&amp;rdquo; in plain text, you would find hundreds and hundreds of repeated references to London in ads and tables. TEI-XML allows you to search for &amp;ldquo;London&amp;rdquo; in specific parts of the newspaper: page 3, for example, or local news. The two main query (search) languages for XML are &lt;a href=&#34;https://www.w3.org/TR/xpath-datamodel-30/&#34; target=&#34;_blank&#34;&gt;XPath and XQuery&lt;/a&gt;. These instructions focus on XPath as used in the Oxygen XML editor.&lt;/p&gt;
+&lt;p&gt;We are digitizing the &lt;em&gt;Egyptian Gazette&lt;/em&gt; to make its contents searchable. Plain text can be searched with keywords, but TEI-XML encoded text can be searched in more precise ways. For example, if you search for &amp;ldquo;London&amp;rdquo; in plain text, you would find hundreds and hundreds of repeated references to London in ads and tables. TEI-XML allows you to search for &amp;ldquo;London&amp;rdquo; in &lt;em&gt;specific parts&lt;/em&gt; of the newspaper: page 3, for example, or local news. Restricting your search to these locations can give you more useful results.&lt;/p&gt;
+
+&lt;p&gt;The two main query (search) languages for XML are &lt;a href=&#34;https://www.w3.org/TR/xpath-datamodel-30/&#34; target=&#34;_blank&#34;&gt;XPath and XQuery&lt;/a&gt;. This tutorial focuses on XPath as used in the Oxygen XML editor. An XPath is a series of terms (words) separated by slashes (/) and other punctuation that describes a specific location or locations in an XML file. For example, the XPath &lt;code&gt;//div[@type=&amp;quot;section&amp;quot;]/div/p[contains(., &#39;cotton&#39;)]&lt;/code&gt; describes paragraphs containing the word &amp;ldquo;cotton&amp;rdquo; that are contained in any &lt;code&gt;div&lt;/code&gt; that is itself contained in a &lt;code&gt;div&lt;/code&gt; that is defined as a section. This tutorial explains how to use this powerful tool.&lt;/p&gt;
 
 &lt;h2 id=&#34;1-setting-up-queries-in-the-oxygen-xml-editor&#34;&gt;1. Setting up queries in the Oxygen XML editor&lt;/h2&gt;
 
-&lt;h3 id=&#34;searching-a-single-file&#34;&gt;Searching a single file&lt;/h3&gt;
+&lt;p&gt;Oxygen XML Editor allows you to run queries in several different ways. For our purposes, the most useful are a) Find and Replace and b) the XPath query bar&lt;/p&gt;
 
-&lt;p&gt;Open the file that you wish to search in the Oxygen XML editor. Then, click on Find/Replace. This will allow you to search for a keyword in the open file. The results will be displayed at the bottom of the editor. Click on any item in this list to be taken to that location in your file.&lt;/p&gt;
+&lt;h3 id=&#34;a-find-and-replace&#34;&gt;A) Find and Replace&lt;/h3&gt;
 
-&lt;h3 id=&#34;searching-more-than-one-file&#34;&gt;Searching more than one file&lt;/h3&gt;
+&lt;p&gt;If you are searching for a specific word or phrase, or searching using regular expressions, it&amp;rsquo;s easiest to use Find and Replace. You can search for the word everywhere in a file, or in specific parts of that file, by restricting the search to a certain XPath.&lt;/p&gt;
+
+&lt;h4 id=&#34;searching-a-single-file&#34;&gt;Searching a single file&lt;/h4&gt;
+
+&lt;p&gt;Open the file that you wish to search in the Oxygen XML editor. Then, click on Find/Replace (the magnifying glass). This will allow you to search for a keyword in the open file. The results will be displayed at the bottom of the editor. Click on any item in this list to be taken to that location in your file.&lt;/p&gt;
+
+&lt;p&gt;As an example, search for &lt;code&gt;Egypt&lt;/code&gt;. Then, search for &lt;code&gt;Egypt&lt;/code&gt;, but restrict your XPath to &lt;code&gt;div[@type=&amp;quot;page&amp;quot;][@n=&amp;quot;3&amp;quot;]&lt;/code&gt;, which will restrict your search to page 3 only. Copmpare the results of these two searches.&lt;/p&gt;
+
+&lt;h4 id=&#34;searching-several-files&#34;&gt;Searching several files&lt;/h4&gt;
 
 &lt;p&gt;Open all of the files that you wish to search, then click on Find/Replace in Files:
 &lt;img src=&#34;https://dig-eg-gaz.github.io/img/find-replace-oxygen.png&#34; alt=&#34;find replace oxygen&#34; /&gt;
 This will open a dialogue box. Under &amp;ldquo;Scope,&amp;rdquo; choose &amp;ldquo;All opened files,&amp;rdquo; then proceed with your search.&lt;/p&gt;
 
-&lt;h3 id=&#34;searching-the-full-contents-of-the-digital-egyptian-gazette&#34;&gt;Searching the full contents of the digital Egyptian Gazette&lt;/h3&gt;
+&lt;h4 id=&#34;searching-the-full-contents-of-the-digital-egyptian-gazette&#34;&gt;Searching the full contents of the digital Egyptian Gazette&lt;/h4&gt;
 
 &lt;p&gt;To search everything in the &lt;a href=&#34;https://github.com/dig-eg-gaz/content&#34; target=&#34;_blank&#34;&gt;Digital Egyptian Gazette content repository&lt;/a&gt;, under Find/Replace in Files &amp;gt; Scope, choose &amp;ldquo;Specified path,&amp;rdquo; then navigate to the location where you&amp;rsquo;ve cloned your fork of the content repository. For more information about how to find this location, consult the &lt;a href=&#34;https://dig-eg-gaz.github.io/how-to/digitization/github-instructions/&#34;&gt;Github tutorial&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;basic-xpath-searches&#34;&gt;Basic XPath searches&lt;/h3&gt;
+&lt;h3 id=&#34;b-xpath-query-bar&#34;&gt;B) XPath query bar&lt;/h3&gt;
 
-&lt;p&gt;To search directly with XPath, locate the XPath query box near the top left.
-&lt;img src=&#34;https://dig-eg-gaz.github.io/img/xpath-query-box-oxygen.png&#34; alt=&#34;xpath query box oxygen&#34; /&gt;
-The drop-down icon on the left of this box allows you to choose the scope: current file, all opened files, and so on. Now, try these commands:&lt;/p&gt;
+&lt;p&gt;If you are searching for particular nodes rather than words, or counting nodes, it&amp;rsquo;s easiest to use the XPath query bar, which is located near the top left of your screen.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/xpath-query-box-oxygen.png&#34; alt=&#34;xpath query box oxygen&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The drop-down icon on the left of this box allows you to choose the scope of your search: current file, all opened files, and other options. To search the full contents of the digital Egyptian Gazette, you&amp;rsquo;ll need to use a &amp;ldquo;working set.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://dig-eg-gaz.github.io/img/xpath-query-box-scope.png&#34; alt=&#34;xpath query box scope&#34; /&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;set-up-a-working-set&#34;&gt;Set up a working set&lt;/h4&gt;
+
+&lt;p&gt;To create a working set of files for your search, click on &amp;ldquo;Configure XPath working sets&amp;hellip;&amp;rdquo; in the drop down menu pictured above. Create a &amp;ldquo;New working set&amp;rdquo;, give it a name, then press enter. Now click &amp;ldquo;Add resources,&amp;rdquo; then &amp;ldquo;Folders,&amp;rdquo; then select the content folder you&amp;rsquo;ve cloned from GitHub. Click &amp;ldquo;Done&amp;rdquo; and &amp;ldquo;Ok&amp;rdquo;, and you should be ready to query the full contents.&lt;/p&gt;
+
+&lt;h4 id=&#34;basic-xpath-queries&#34;&gt;Basic XPath queries&lt;/h4&gt;
+
+&lt;p&gt;Set the scope to &amp;ldquo;Current File,&amp;rdquo; then try these basic queries:&lt;/p&gt;
 
 &lt;ul&gt;
-&lt;li&gt;a list of all the &amp;ldquo;divs&amp;rdquo; in your file: &lt;code&gt;//div&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;a list of all the item-type divs in your file: &lt;code&gt;//div[@type=&amp;quot;item&amp;quot;]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;a list of all the item-type divs in your file containing the word &amp;ldquo;cotton&amp;rdquo;: &lt;code&gt;//div[@type=&amp;quot;item&amp;quot;][contains(., &#39;cotton&#39;)]&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;all tagged names of persons or places in the files: &lt;code&gt;//persName&lt;/code&gt; or &lt;code&gt;//placeName&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;//div&lt;/code&gt; returns a list of all the &amp;ldquo;divs&amp;rdquo; in your file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;//div[@type=&amp;quot;item&amp;quot;]&lt;/code&gt; returns a list of all the item-type divs in your file&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;//div[@type=&amp;quot;item&amp;quot;][contains(., &#39;cotton&#39;)]&lt;/code&gt; returns a list of all the item-type divs in your file containing the word &amp;ldquo;cotton&amp;rdquo;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&#34;2-basic-principles-of-xpath&#34;&gt;2. Basic principles of XPath&lt;/h2&gt;
+&lt;h2 id=&#34;2-the-what-and-where-of-xpath&#34;&gt;2. The What and Where of XPath&lt;/h2&gt;
 
-&lt;p&gt;XPath asks you to do two things: specify &lt;strong&gt;where&lt;/strong&gt; you want to search, and specify &lt;strong&gt;what&lt;/strong&gt; you want to search for. An XPath query is a series of terms (words) separated by slashes (/) and other punctuation. For example:&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;//div[@type=&amp;quot;section&amp;quot;]/div/p[contains(., &#39;cotton&#39;)]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Once you have the basic parameters set up, it&amp;rsquo;s time to look a bit more carefully at the logic of XPath. XPath asks you to do two things: specify &lt;strong&gt;where&lt;/strong&gt; you want to search, and specify &lt;strong&gt;what&lt;/strong&gt; you want to search for.&lt;/p&gt;
 
 &lt;h3 id=&#34;where-searches&#34;&gt;&amp;ldquo;Where&amp;rdquo; searches&lt;/h3&gt;
 
@@ -843,7 +862,7 @@ The drop-down icon on the left of this box allows you to choose the scope: curre
 
 &lt;p&gt;This structure is commonly described as a &amp;ldquo;tree.&amp;rdquo; The root is the issue, which branches into six or eight pages, and each page branches into sections and items and paragraphs.&lt;/p&gt;
 
-&lt;p&gt;An XPath query shows the tree parts separated slashes, starting from root and heading towards the branches, like so:&lt;/p&gt;
+&lt;p&gt;An XPath query shows the tree parts separated by slashes, starting from root and heading towards the branches, like so:&lt;/p&gt;
 
 &lt;p&gt;&lt;code&gt;//div[@type=&amp;quot;page&amp;quot;]/div[@type=&amp;quot;section&amp;quot;]/div[@type=&amp;quot;item&amp;quot;]/p&lt;/code&gt;&lt;/p&gt;
 
@@ -946,7 +965,7 @@ The drop-down icon on the left of this box allows you to choose the scope: curre
 
 &lt;h2 id=&#34;7-export-and-manipulate-results&#34;&gt;7. Export and manipulate results&lt;/h2&gt;
 
-&lt;p&gt;Right click on results, then export file. You can then clean up these results with regular expressions to remove the parts you don&amp;rsquo;t want. After this, you can work with the results in a spreadsheet.&lt;/p&gt;
+&lt;p&gt;Right click on results, then export file. You can then &lt;a href=&#34;https://dig-eg-gaz.github.io/how-to/digitization/regular-expression-instructions/#cleaning-xpath-results&#34; target=&#34;_blank&#34;&gt;clean up these results with regular expressions&lt;/a&gt; to remove the parts you don&amp;rsquo;t want. After this, you can work with the results in a spreadsheet.&lt;/p&gt;
 
 &lt;h2 id=&#34;8-xquery&#34;&gt;8. XQuery&lt;/h2&gt;
 
@@ -1005,22 +1024,24 @@ Some examples of commonly used regex codes:&lt;/p&gt;
 &lt;h2 id=&#34;cleaning-xpath-results&#34;&gt;Cleaning XPath results&lt;/h2&gt;
 
 &lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Select all, copy, and paste results into atom text editor.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Select all, copy, and paste results into your plain text editor.&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;Open find and replace. Click the Regex option, then use this line to remove some of the results:
-Find &lt;code&gt;XPath location: .+\nStart location: .+\nEnd location: .+\n\nSystem ID:&lt;/code&gt;
-Replace with (leave empty). Click Replace All.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Remove the file location that precedes the issue date:
-Find &lt;code&gt;/Users/whanley/GitHub/DEG-content/&lt;/code&gt; (this will be different on your computer&amp;ndash;just select everything that comes before the date filename)
-Replace with (leave empty). Click Replace All.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Find &lt;code&gt;.xml\nDescription:&lt;/code&gt;, Replace with &lt;code&gt;\t&lt;/code&gt;. Replace All.&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;You&amp;rsquo;ll have a bit of garbage left over at the beginning and end of the file. Delete this. Now you will have a tab-separated, two-column table that you can paste into a spreadsheet.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;First, let&amp;rsquo;s remove the lines that start with &amp;ldquo;XPath location,&amp;rdquo; &amp;ldquo;Start location,&amp;rdquo; and &amp;ldquo;End location,&amp;rdquo; because we won&amp;rsquo;t need these results. Open find and replace. Click the Regex option, then use this regex to find the first of these results: &lt;code&gt;XPath location: .+\n&lt;/code&gt;. &lt;em&gt;Note&lt;/em&gt;: if you&amp;rsquo;re using Windows, you may have to replace the &lt;code&gt;\n&lt;/code&gt; (new line indicator) at the end of this string with &lt;code&gt;\r\n&lt;/code&gt;, which is how Windows sometimes indicates new lines.&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
-&lt;p&gt;Recipe to clean &lt;code&gt;count&lt;/code&gt; results, giving a single column response: &lt;code&gt;\n.+\nDescription:&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Once you&amp;rsquo;ve selected all of these &amp;ldquo;XPath location&amp;rdquo; lines, replace them with nothing (i.e., leave the replace box empty). Click Replace All.&lt;/p&gt;
+
+&lt;p&gt;Now you can do the same for &lt;code&gt;Start location: .+\n&lt;/code&gt; and &lt;code&gt;End location: .+\n&lt;/code&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Remove the file location that precedes the issue date. Find &lt;code&gt;System ID: /Users/whanley/GitHub/DEG-content/&lt;/code&gt; (this will be different on your computer&amp;ndash;just select everything that comes before the date filename). (You may need to turn off Regex in order to find this string text.) Leave the replace box empty, then click Replace All.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Now we replace what comes between the date and the results. Turn Regex back on, then find &lt;code&gt;.xml\nDescription:&lt;/code&gt; (or &lt;code&gt;.xml\r\nDescription:&lt;/code&gt; if you are using Windows) and replace with &lt;code&gt;\t&lt;/code&gt;. Replace All.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;If you have empty lines in your file, you can remove them by finding &lt;code&gt;\n\n&lt;/code&gt; (or &lt;code&gt;\r\n\r\n&lt;/code&gt;) and replacing it with &lt;code&gt;\n&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;You might have a bit of garbage left over at the beginning and end of the file. Delete this. Now you will have a tab-separated, two-column table that you can paste into a spreadsheet.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h2 id=&#34;using-regex-in-microsoft-word&#34;&gt;Using regex in Microsoft word&lt;/h2&gt;
 

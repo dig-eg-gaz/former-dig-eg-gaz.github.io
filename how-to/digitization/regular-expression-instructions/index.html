@@ -488,22 +488,24 @@ Some examples of commonly used regex codes:</p>
 <h2 id="cleaning-xpath-results">Cleaning XPath results</h2>
 
 <ol>
-<li><p>Select all, copy, and paste results into atom text editor.</p></li>
+<li><p>Select all, copy, and paste results into your plain text editor.</p></li>
 
-<li><p>Open find and replace. Click the Regex option, then use this line to remove some of the results:
-Find <code>XPath location: .+\nStart location: .+\nEnd location: .+\n\nSystem ID:</code>
-Replace with (leave empty). Click Replace All.</p></li>
-
-<li><p>Remove the file location that precedes the issue date:
-Find <code>/Users/whanley/GitHub/DEG-content/</code> (this will be different on your computer&ndash;just select everything that comes before the date filename)
-Replace with (leave empty). Click Replace All.</p></li>
-
-<li><p>Find <code>.xml\nDescription:</code>, Replace with <code>\t</code>. Replace All.</p></li>
-
-<li><p>You&rsquo;ll have a bit of garbage left over at the beginning and end of the file. Delete this. Now you will have a tab-separated, two-column table that you can paste into a spreadsheet.</p></li>
+<li><p>First, let&rsquo;s remove the lines that start with &ldquo;XPath location,&rdquo; &ldquo;Start location,&rdquo; and &ldquo;End location,&rdquo; because we won&rsquo;t need these results. Open find and replace. Click the Regex option, then use this regex to find the first of these results: <code>XPath location: .+\n</code>. <em>Note</em>: if you&rsquo;re using Windows, you may have to replace the <code>\n</code> (new line indicator) at the end of this string with <code>\r\n</code>, which is how Windows sometimes indicates new lines.</p></li>
 </ol>
 
-<p>Recipe to clean <code>count</code> results, giving a single column response: <code>\n.+\nDescription:</code></p>
+<p>Once you&rsquo;ve selected all of these &ldquo;XPath location&rdquo; lines, replace them with nothing (i.e., leave the replace box empty). Click Replace All.</p>
+
+<p>Now you can do the same for <code>Start location: .+\n</code> and <code>End location: .+\n</code></p>
+
+<ol>
+<li><p>Remove the file location that precedes the issue date. Find <code>System ID: /Users/whanley/GitHub/DEG-content/</code> (this will be different on your computer&ndash;just select everything that comes before the date filename). (You may need to turn off Regex in order to find this string text.) Leave the replace box empty, then click Replace All.</p></li>
+
+<li><p>Now we replace what comes between the date and the results. Turn Regex back on, then find <code>.xml\nDescription:</code> (or <code>.xml\r\nDescription:</code> if you are using Windows) and replace with <code>\t</code>. Replace All.</p></li>
+
+<li><p>If you have empty lines in your file, you can remove them by finding <code>\n\n</code> (or <code>\r\n\r\n</code>) and replacing it with <code>\n</code>.</p></li>
+
+<li><p>You might have a bit of garbage left over at the beginning and end of the file. Delete this. Now you will have a tab-separated, two-column table that you can paste into a spreadsheet.</p></li>
+</ol>
 
 <h2 id="using-regex-in-microsoft-word">Using regex in Microsoft word</h2>
 
