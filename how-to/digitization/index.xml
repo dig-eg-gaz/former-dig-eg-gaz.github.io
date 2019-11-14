@@ -247,7 +247,11 @@ I will then see the pull request and either merge your files into the organizati
 
 &lt;h2 id=&#34;5-how-do-i-make-sure-that-my-content-fork-is-up-to-date&#34;&gt;5. How do I make sure that my content fork is up to date?&lt;/h2&gt;
 
-&lt;p&gt;In the screenshot above, you&amp;rsquo;ll notice the caption &amp;ldquo;This branch is 1 commit ahead, 98 commits behind dig-eg-gaz:master.&amp;rdquo; The &amp;ldquo;commit ahead&amp;rdquo; is work that needs to be submitted in a pull request and merged. The &amp;ldquo;commits behind&amp;rdquo; represents work that your colleagues have done, and that has been merged into the master content repository but hasn&amp;rsquo;t made it to your fork yet. When it comes time to do your querying and analysis of others&amp;rsquo; files, it&amp;rsquo;s very important to make sure that you are working on an up-to-date version of the content files. When you look at your fork of the &lt;code&gt;dig-eg-gaz/content&lt;/code&gt; repository on the github website, you will see a line comparing your repository to the organization repository:
+&lt;p&gt;In the screenshot above, you&amp;rsquo;ll notice the caption &amp;ldquo;This branch is 1 commit ahead, 98 commits behind dig-eg-gaz:master.&amp;rdquo; &amp;ldquo;Commits ahead&amp;rdquo; is work that you&amp;rsquo;ve done and will (or have already) submitted in a pull request. Once it&amp;rsquo;s merged into the master content repository, your fork will be &amp;ldquo;no commits ahead&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&amp;ldquo;Commits behind&amp;rdquo; represents work that your colleagues have done and that has been merged into the master content repository &lt;em&gt;after&lt;/em&gt; you first made your fork. These updates don&amp;rsquo;t make their way into your fork automatically. Normally this is not big deal, as you aren&amp;rsquo;t working on those files anyway. But when it comes time to do your querying and analysis of the whole repository, it&amp;rsquo;s very important to make sure that you are working on an up-to-date version of the master content files.&lt;/p&gt;
+
+&lt;p&gt;When you look at your fork of the &lt;code&gt;dig-eg-gaz/content&lt;/code&gt; repository on the github website, you will see a line comparing your repository to the organization repository:
 &lt;img src=&#34;https://dig-eg-gaz.github.io/img/250-commits-behind.png&#34; alt=&#34;not up to date&#34; /&gt;
 If you are ahead, click the &amp;ldquo;new pull request&amp;rdquo; button above the status report and ask the organization to merge your changes.&lt;/p&gt;
 
@@ -255,7 +259,7 @@ If you are ahead, click the &amp;ldquo;new pull request&amp;rdquo; button above 
 
 &lt;ol&gt;
 &lt;li&gt;click &amp;ldquo;pull request&amp;rdquo; on the same line and to the right of the status of the report.&lt;/li&gt;
-&lt;li&gt;You may then be taken to a screen saying &amp;ldquo;There isn&amp;rsquo;t anything to compare.&amp;rdquo; Click on the &amp;ldquo;switching the base&amp;rdquo; link just below.&lt;/li&gt;
+&lt;li&gt;You need to manipulate things so that your fork is the &amp;ldquo;base repository&amp;rdquo; and the &lt;code&gt;dig-eg-gaz/content&lt;/code&gt; is the &amp;ldquo;head repository&amp;rdquo;. I&amp;rsquo;m not completely sure how to accomplish this&amp;hellip;&lt;/li&gt;
 &lt;li&gt;You will then be taken to a screen that allows you to create a pull request. Do so.&lt;/li&gt;
 &lt;li&gt;This pull request will now appear on the &amp;ldquo;pull requests&amp;rdquo; tab of your fork of the content folder.
 &lt;img src=&#34;https://dig-eg-gaz.github.io/img/pull-requests-tab.png&#34; alt=&#34;pull requests&#34; /&gt;
